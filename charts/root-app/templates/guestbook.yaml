@@ -1,16 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nginx
+  name: guestbook
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
     repoURL: https://github.com/togarlamhot/testing.git
-    path: charts/nginx
+    path: charts/guestbook
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
     namespace: default
   syncPolicy:
-    automated: {}
-    selfHeal: true
+    automated:
+      selfHeal: true
