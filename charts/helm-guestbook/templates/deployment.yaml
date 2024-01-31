@@ -50,13 +50,13 @@ spec:
       tolerations:
 {{ toYaml . | indent 8 }}
     {{- end }}
-      strategy:
-        canary:
-          maxSurge: "25%"
-          maxUnavailable: 0
-          steps:
-          - setWeight: 4
-          - pause:
-              duration: 30 #seconds
-          - setWeight: 50
-          - pause: {}
+  strategy:
+    canary:
+      maxSurge: "25%"
+      maxUnavailable: 0
+      steps:
+      - setWeight: 4
+      - pause:
+          duration: 30 #seconds
+      - setWeight: 50
+      - pause: {}
