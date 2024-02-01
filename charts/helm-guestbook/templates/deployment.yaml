@@ -52,11 +52,12 @@ spec:
     {{- end }}
   strategy:
     canary:
-      maxSurge: "25%"
-      maxUnavailable: 0
+      maxSurge: {{ .Values.canary.maxSurge }}
+      maxUnavailable: {{ .Values.canary.maxUnavaiable }}
       steps:
-      - setWeight: 4
-      - pause:
-          duration: 30 #seconds
+      - setWeight: 25
+      - pause: {duration: 30s}
       - setWeight: 50
-      - pause: {}
+      - pause: {duration: 30s}
+      - setWeight: 75
+      - pause: {duration: 30s}

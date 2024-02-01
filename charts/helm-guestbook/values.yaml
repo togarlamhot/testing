@@ -45,3 +45,7 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+canary:
+  maxSurge: "25%"
+  maxUnavaiable: 0
