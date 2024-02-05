@@ -49,3 +49,9 @@ affinity: {}
 canary:
   maxSurge: "25%"
   maxUnavaiable: 0
+canarySteps:
+  - setWeight: 50
+  - pause: {duration: 30s}
+  - setWeight: 75
+  - pause: {duration: 30s}
+     

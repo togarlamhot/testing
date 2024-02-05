@@ -55,7 +55,4 @@ spec:
       maxSurge: {{ .Values.canary.maxSurge }}
       maxUnavailable: {{ .Values.canary.maxUnavaiable }}
       steps:
-      - setWeight: 50
-      - pause: {duration: 30s}
-      - setWeight: 75
-      - pause: {duration: 30s}
+        {{- toYaml .Values.canarySteps | nindent 6 }}
