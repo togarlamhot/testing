@@ -6,7 +6,7 @@ replicaCount: 4
 
 image:
   repository: my_web_server
-  tag: 1.4
+  tag: 1.5
   pullPolicy: IfNotPresent
 
 containerPort: 80
